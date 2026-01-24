@@ -8,7 +8,7 @@ public class TileRow : MonoBehaviour
     //capitalize A, runs when function is first called
     private void Awake()
     {
-        //searches for components on whatever game object this script is attatched to
-        cells = GetComponent
+        //searches for components on whatever game object this script is attatched to, in this case searches children
+        cells = GetComponentsInChildren<TileCell>();
     }       
 }
