@@ -8,7 +8,8 @@ Learned
 - TextMesh Pro
 - ScriptableObject
 - How different objects are called and interacted with via C#
-- Overall C# syntax
+- Overall C# syntax and commands
 - VScode Extensions
 
 What I made myself
+- Variable duration using public const duration variable in Tile.cs
