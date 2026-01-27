@@ -1,6 +1,7 @@
 My tools
 - https://www.youtube.com/watch?v=4NFZwPhqeRs
 - Unity 2021.3.6f1
+- All of the code is extensively commented
 
 Learned
 - Horizontal and vertical layout components
@@ -11,5 +12,11 @@ Learned
 - Overall C# syntax and commands
 - VScode Extensions
 
-What I made myself
+What I have implemented
 - Variable duration using public const duration variable in Tile.cs
+
+What I plan to implement
+- Merge audio
+- Game Over audio
+- Overall theming change
+- Randomized tile hex colors per tile state per playthrough
