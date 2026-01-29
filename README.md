@@ -12,7 +12,7 @@ Learned
 - Overall C# syntax and commands
 - VScode Extensions
 
-What I have implemented
+What I have created and implemented
 - Variable duration using public const duration variable in Tile.cs
 - SoundManager, manages all audio events and audios in a list
 - PrestigeManager, Save system PlayerPrefs
