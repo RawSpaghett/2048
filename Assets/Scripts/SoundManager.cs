@@ -7,15 +7,20 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public Sound[] sounds; //list of sounds with Sound class
+    public Sound[] backgroundMusic; //list of bgm
     public AudioSource Speaker;
-    public AudioClip bgm;
+    
 
-public void Awake() // for background music
-{
-    Speaker.clip = bgm; //moves bgm to audiosource component 
-    Speaker.loop = true;
-    Speaker.Play();
-}
+    public void Awake() // for background music
+    {
+        //handles background music startup
+    }
+ 
+    //IEnumerator Jukebox() 
+    //{
+        //handle background music
+        //use Lerp to fade music in and out
+   // }
 
 
     public void PlayAudio(string name)

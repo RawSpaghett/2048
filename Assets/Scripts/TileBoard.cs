@@ -48,21 +48,60 @@ public class TileBoard : MonoBehaviour
         tile.Spawn(grid.GetRandomEmptyCell()); // could in theory return null, but is only responsible for the intital tiles
         tiles.Add(tile);
     }
+
+        public void DebugCreateTile()
+    {
+        Debug.Log("CreateTile");
+       Tile tile = Instantiate(TilePrefab,grid.transform);
+ 
+       tile.SetState(tileStates[10],2048);
+        tile.Spawn(grid.GetRandomEmptyCell()); 
+        tiles.Add(tile);
+    }
+
     private void Update()
     //get user inputs
     {
         if(!waiting) //is false, prevents weird movements
         {
             //all of these check in the starting directions
-            if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                MoveTiles(Vector2Int.up,0,1,1,1); //checks top down
+            if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow)){
+                if(CheckFor2048())
+                {
+                    GameManager.Prestige();
+                }
+                else
+                {
+                    MoveTiles(Vector2Int.up,0,1,1,1); //checks top down
+                }
+
             } else if (Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.DownArrow)){
-                MoveTiles(Vector2Int.down,0,1,grid.height - 2,-1); //checks bottom up
+                if(CheckFor2048())
+                {
+                    GameManager.Prestige();
+                }
+                else
+                {
+                    MoveTiles(Vector2Int.down,0,1,grid.height - 2,-1); //checks bottom up
+                }
             } else if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.LeftArrow)){
-                MoveTiles(Vector2Int.left,1,1,0,1);//checks left to right
+                if(CheckFor2048())
+                {
+                    GameManager.Prestige();
+                }
+                else
+                {
+                    MoveTiles(Vector2Int.left,1,1,0,1);//checks left to right
+                }
             } else if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow)){
-                MoveTiles(Vector2Int.right, grid.width-2,-1,0,1); //checks right to left
+                if(CheckFor2048())
+                {
+                    GameManager.Prestige();
+                }
+                else
+                {
+                    MoveTiles(Vector2Int.right, grid.width-2,-1,0,1); //checks right to left
+                }
             }
         }
         
@@ -93,6 +132,7 @@ public class TileBoard : MonoBehaviour
     }
     private bool MoveTile(Tile tile, Vector2Int direction)
     {
+
         TileCell newCell = null;
         TileCell adjacent = grid.GetAdjacentCell(tile.cell,direction);
 
@@ -164,11 +204,29 @@ public class TileBoard : MonoBehaviour
         {
             tile.locked = false;
         }
-        
+
+         if(CheckFor2048())
+        {
+            GameManager.Prestige();
+        }
+
         if ( CheckForGameOver())
         {
             GameManager.GameOver();
         }
+
+    }
+
+    private bool CheckFor2048()
+    {
+       foreach(var tile in tiles)
+       {
+        if(tile.number ==  2048)
+        {
+        return true;
+        }
+       }
+       return false;
     }
 
     private bool CheckForGameOver()

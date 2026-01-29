@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336eeaeb341ad4e6e8619f335582b9f7, type: 3}
   m_Name: Merge
   m_EditorClassIdentifier: 
-  audioName: 
-  clip: {fileID: 0}
+  audioName: Merge
+  clip: {fileID: 8300000, guid: a7c2aa781ab514aaebc348f3fc6bfd8d, type: 3}

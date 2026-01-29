@@ -5,6 +5,11 @@ public class GameManager : MonoBehaviour
 {
     public TileBoard board; //needed so it can interact with the board
     public CanvasGroup gameOver;
+    public CanvasGroup debug;
+    public PrestigeManager prestigeManager;
+    
+    
+    
 
     private void Start()
     {
@@ -28,7 +33,16 @@ public class GameManager : MonoBehaviour
         board.enabled = false;
         gameOver.interactable = true;
         StartCoroutine(Fade(gameOver, 1f, 1f)); //fading in, 1 second delay
+    }
 
+ 
+
+    public void Prestige()
+    {
+        prestigeManager.AddPrestige();
+        prestigeManager.Save();
+        prestigeManager.UpdateUI();
+        NewGame();
     }
 
     private IEnumerator Fade(CanvasGroup canvasGroup, float to, float delay) //adds a fade effect to canvasgroup, makes it feel better
