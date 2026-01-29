@@ -14,9 +14,12 @@ Learned
 
 What I have implemented
 - Variable duration using public const duration variable in Tile.cs
+- SoundManager, manages all audio events and audios in a list
+- PrestigeManager, Save system PlayerPrefs
+- Animated game over text
 
 What I plan to implement
-- Merge audio
-- Game Over audio
-- Overall theming change
-- Randomized tile hex colors per tile state per playthrough
+- Rainbow 2048
+- Music
+- Sound effects
+- Less jarring transitions
