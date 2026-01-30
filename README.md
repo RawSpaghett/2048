@@ -17,9 +17,10 @@ What I have created and implemented
 - SoundManager, manages all audio events and audios in a list
 - PrestigeManager, Save system PlayerPrefs
 - Animated game over text
+- Sound effects
+- Quit and Audio buttons
 
 What I plan to implement
 - Rainbow 2048
 - Music
-- Sound effects
 - Less jarring transitions
