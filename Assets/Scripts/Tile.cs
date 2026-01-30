@@ -14,6 +14,8 @@ public class Tile : MonoBehaviour
 
     public bool locked{get;set;}
 
+    public SoundManager soundManager;
+
     private Image background;
     private TextMeshProUGUI text; //without TMP use "text" instead
 
@@ -21,6 +23,7 @@ public class Tile : MonoBehaviour
     {
         background = GetComponent<Image>();
         text = GetComponentInChildren<TextMeshProUGUI>();
+        soundManager = FindObjectOfType<SoundManager>(); //solution by Gemini, Had trouble attatching my SoundManager to each tile
     }
     
 
@@ -91,10 +94,12 @@ public class Tile : MonoBehaviour
             //coroutines allow you to essentially suspend something until the next frame
         }
         transform.position = to; // to align the tile and avoid slight positioning errors
+        
 
         if (merging) //if its merging, destroy after moving
         {
             Destroy(gameObject);
+            soundManager.PlayAudio("Merge");//merge audio
         }
     }
 }
