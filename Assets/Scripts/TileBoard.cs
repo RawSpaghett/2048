@@ -68,7 +68,7 @@ public class TileBoard : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow)){
                 if(CheckFor2048())
                 {
-                    GameManager.Prestige();
+                    GameManager.Prestige(); //not the most efficient way to go about this, but a workaround to avoid janky movements
                 }
                 else
                 {
@@ -196,7 +196,7 @@ public class TileBoard : MonoBehaviour
 
         if(tiles.Count != grid.size) // if available space
         {
-        CreateTile();
+            CreateTile();
         }
         //Check for game over
 

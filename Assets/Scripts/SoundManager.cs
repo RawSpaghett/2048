@@ -29,6 +29,11 @@ public class SoundManager : MonoBehaviour
         {
             if(sounds[i].audioName == name )
             {
+                if(Speaker.isPlaying) //prevents weird overlap
+                {
+                    Speaker.Stop();
+                }
+
                 Speaker.PlayOneShot(sounds[i].clip); //plays correct audio
                 return; //ends loop
             }
