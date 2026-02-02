@@ -23,6 +23,7 @@ public class Tile : MonoBehaviour
     {
         background = GetComponent<Image>();
         text = GetComponentInChildren<TextMeshProUGUI>();
+      
         soundManager = FindObjectOfType<SoundManager>(); //solution by Gemini, Had trouble attatching my SoundManager to each tile
     }
     
@@ -31,7 +32,10 @@ public class Tile : MonoBehaviour
     {
         this.state = state;
         this.number = number;
-
+        if( number == 2048)
+        {
+               gameObject.AddComponent<EndPulse>();
+        }
         background.color = state.backgroundColor;
         text.color = state.textColor;
         text.text = number.ToString();
@@ -57,7 +61,7 @@ public class Tile : MonoBehaviour
             this.cell.Tile = null;
         }
 
-        //mutally identifys cell to tile and tile to cell
+        //mutally identifys acell to tile and tile to cell
         this.cell = cell;
         this.cell.Tile = this;
 
